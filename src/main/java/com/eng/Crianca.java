@@ -1,18 +1,14 @@
 package com.eng;
 
-import javafx.scene.input.DataFormat;
-
-import javax.xml.crypto.Data;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 public class Crianca extends RegistroCrianca {
     private String nome;
     private String id;
-    private LocalDate dataNascimento;
+    private String dataNascimento;
 
-    public Crianca(String nome, String id,LocalDate dataNascimento,String doenca, String medicacoes) {
+    public Crianca(String nome, String id,String dataNascimento, String doenca, String medicacoes) {
         super(doenca, medicacoes);
         this.nome = nome;
         this.id = id;
@@ -27,7 +23,7 @@ public class Crianca extends RegistroCrianca {
     }
 
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 }

@@ -1,20 +1,17 @@
 package com.eng;
 
 
-import javafx.scene.input.DataFormat;
-import javafx.util.converter.LocalDateStringConverter;
-
 import javax.swing.*;
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
             SistemaRegistroInterface sistema =  new SistemaRegistro();
-
+           
 
 
         JOptionPane.showMessageDialog(null,"Sistema de Historico de Saúde Infaltil","Bem Vindo",JOptionPane.INFORMATION_MESSAGE);
@@ -29,10 +26,12 @@ public class Main {
 
             switch (opc) {
                 case 1:
-
+                    SimpleDateFormat formDate = new SimpleDateFormat("dd/MM/yyyy");
                     String nomeCrianca = JOptionPane.showInputDialog("Digite o nome da criaça");
                     String idCrianca = JOptionPane.showInputDialog("Digite o id da crianca");
-                    LocalDate dataNas = LocalDate.parse(JOptionPane.showInputDialog("Digite a data de Nascimento\n Formato Ano-mes-dia"));
+                    String dataNas = JOptionPane.showInputDialog("Digite a data de Nascimento\n Formato Ano-mes-dia");
+                     Date data = formDate.parse(dataNas);
+            
                     JOptionPane.showMessageDialog(null,"Criança Cadastrada!","Atenção",JOptionPane.DEFAULT_OPTION);
                     JOptionPane.showMessageDialog(null,"Agora vamos adicionar algumas informações dessa Criança","Atenção!!!",JOptionPane.INFORMATION_MESSAGE);
                     String doencaCrianca = JOptionPane.showInputDialog("Digite a Doenca\nSe tiver mais de uma separe com virgula ','");
